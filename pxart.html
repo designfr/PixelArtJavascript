@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      .pixel {
+        width: 5px;
+        height: 5px;
+      }
+
+      .linha {
+        background:black;
+        border: solid 1px;
+        max-width: 80px;
+        display: grid;
+        grid: 'pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel';
+      }
+
+      html, body {
+        background: black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="caixa"></div>
+    <script>
+      var inicio = '<div class="linha">';
+      var fim = '</div>';
+      var persunagi = {
+        vertical:   [5, 4, 3, 2, 1, 1, 0, 0, 0, 0, 0,  1,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 14, 15, 15, 15, 15, 15, 15, 14, 14, 13, 12, 11, 10, 9, 8, 7, 6, 4,  5,  6,  4,  5,  6,  5, 5, 5, 6, 6, 7, 8, 9, 9,  9, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12],
+        horizontal: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 15, 15, 15, 15, 15, 15, 14, 14, 13, 12, 11, 10, 9,  8,  7,  6,  5,  4,  3,  2,  1,  0,  0,  0, 0, 1, 0, 10, 10, 10, 12, 12, 12, 3, 4, 5, 6, 3, 3, 4, 9, 11, 13, 9, 10, 11, 12, 13, 8,  9,  10, 11, 12, 13, 8,  10, 12 ]
+      };
+
+      for(var i = 0; i < 16; i++) {
+        for(var j = 0; j < 16; j++) {
+          inicio += '<div class="pixel" id="v'+ i + 'h' + j+'"></div>';
+        }
+      }
+
+      inicio += fim;
+
+      document.getElementById('caixa').innerHTML = inicio;
+
+      // pinta
+      for(var vh = 0; vh < persunagi.vertical.length; vh++) {
+        document.getElementById("v" + persunagi.vertical[vh] + "h" + persunagi.horizontal[vh]).style.backgroundColor = "white";
+      }
+    </script>
+  </body>
+
+</html>
